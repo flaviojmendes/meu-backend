@@ -8,6 +8,7 @@ fastapi = "*"
 uvicorn = {extras = ["standard"], version = "*"}
 jose = "*"
 python-jose = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
