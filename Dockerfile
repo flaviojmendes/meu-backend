@@ -10,9 +10,9 @@ ARG fullchain
 
 ARG privkey
 
-COPY fullchain /code/
+COPY $fullchain /code/
 
-COPY privkey /code/
+COPY $privkey /code/
 
 COPY ./ /code/
 
