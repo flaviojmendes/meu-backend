@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from utils.constants import ALGORITHMS, API_AUDIENCE, AUTH0_DOMAIN, ENV
+from utils.constants import ALGORITHMS, API_AUDIENCE, API_DOMAIN, AUTH0_DOMAIN, ENV
 from fastapi.middleware.cors import CORSMiddleware
 
 import os
@@ -120,8 +120,8 @@ if __name__ == '__main__':
                     host="0.0.0.0",
                     port=80,
                     reload=True,
-                    ssl_keyfile="/code/certs/privkey.pem",
-                    ssl_certfile="/code/certs/fullchain.pem"
+                    ssl_keyfile=f"/code/certs/live/{API_DOMAIN}/privkey.pem",
+                    ssl_certfile=f"/code/certs/live/{API_DOMAIN}/fullchain.pem"
                     )
     else:
         uvicorn.run("main:app",
