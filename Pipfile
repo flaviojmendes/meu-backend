@@ -9,6 +9,7 @@ uvicorn = {extras = ["standard"], version = "*"}
 jose = "*"
 python-jose = "*"
 python-dotenv = "*"
+firebase-admin = "*"
 
 [dev-packages]
 

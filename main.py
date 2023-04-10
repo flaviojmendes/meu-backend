@@ -1,5 +1,6 @@
 
 from dotenv import load_dotenv
+from service.item_service import get_items, remove_item, save_item
 
 load_dotenv()
 
@@ -11,7 +12,7 @@ import json
 from urllib.request import urlopen
 
 from typing import Union
-from fastapi import FastAPI, HTTPException, Request, Response
+from fastapi import FastAPI, HTTPException, Header, Request, Response
 import uvicorn
 from jose import JWTError, jwt
 
@@ -109,9 +110,37 @@ def read_root():
     return {"Hello": "World"}
 
 
+@app.get("/ping")
+def read_root():
+    return "OK"
+
+
+
 @app_private.get("/items/{item_id}")
 def read_item(item_id: int):
     return {"item_id": item_id}
+
+
+@app_public.get("/items")
+def read_item():
+    return get_items()
+
+
+
+@app_public.get("/items/add/{item_id}")
+def add_item(item_id: str):
+    return save_item(item_id,)
+
+
+@app_public.get("/items/delete/{item_id}")
+def read_item(item_id: str):
+    return remove_item(item_id)
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
