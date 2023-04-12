@@ -115,6 +115,11 @@ def read_root():
     return "OK"
 
 
+@app.get("/health")
+def read_root():
+    return "OK"
+
+
 
 @app_private.get("/items/{item_id}")
 def read_item(item_id: int):
