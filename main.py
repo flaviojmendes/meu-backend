@@ -110,12 +110,6 @@ def read_root():
     return {"Hello": "World"}
 
 
-
-@app.get("/ping")
-def read_ping():
-    return {"PONG"}
-
-
 @app_private.get("/items/{item_id}")
 def read_item(item_id: int):
     return {"item_id": item_id}
